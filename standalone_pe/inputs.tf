@@ -17,7 +17,10 @@ variable "aws_availability_zone" {
 
 #  AMI 
 variable "aws_ami" {
-  #default = "ami-06640050dc3f556bb" # us-east-1
-  #default = "ami-0f0f1c02e5e4d9d9f" # eu-west-1
-  default = "ami-07d8796a2b0f8d29c"
+  default = "ami-0f0f1c02e5e4d9d9f" # Redhat 8
 }
+
+variable "aws_ami_size" {
+  default = "t2.large"
+}
+
