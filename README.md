@@ -17,9 +17,8 @@ terraform validate
 #### Apply the code
 
 ```
-terraform plan -out my.tfplan
-terraform apply -state=my.tfstate my.tfplan
-```
+terraform plan
+terraform apply
 
 #### Clean up
 ```
