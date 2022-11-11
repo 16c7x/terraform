@@ -5,7 +5,7 @@ sudo yum -y install wget
 sudo yum -y install bind-utils
 
 # Install Puppet -  ToDo - we should probably handle .tar.gz files rather then presume it'll all be uncompressed.
-wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=latest'
+wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=8&arch=x86_64&ver=latest'
 #
 gunzip puppet-enterprise-*.tar.gz
 tar -xvf puppet-enterprise-*.tar
