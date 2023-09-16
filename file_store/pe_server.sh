@@ -4,7 +4,8 @@ sudo yum -y install wget
 sudo yum -y install bind-utils
 
 # Install Puppet -  ToDo - we should probably handle .tar.gz files rather then presume it'll all be uncompressed.
-wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=8&arch=x86_64&ver=latest'
+#wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=8&arch=x86_64&ver=latest'
+wget --content-disposition 'https://pm.puppetlabs.com/puppet-enterprise/2021.7.4/puppet-enterprise-2021.7.4-el-8-x86_64.tar.gz'
 #
 gunzip puppet-enterprise-*.tar.gz
 tar -xvf puppet-enterprise-*.tar
