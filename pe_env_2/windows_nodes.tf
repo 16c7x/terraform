@@ -10,6 +10,7 @@ resource "aws_instance" "windows_node" {
 
   tags = {
     Name     = "windows_node_${count.index}"
-    lifetime = "5d"
+    lifetime = "1d"
+    email    = "andrew.jones@perforce.com"
   }
 }

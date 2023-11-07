@@ -15,7 +15,7 @@ resource "aws_instance" "pe-server" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("~/.ssh/id_rsa")
+      private_key = file("~/.ssh/andrew.jones.pem")
       host        = self.public_ip
     }
   }
@@ -42,7 +42,7 @@ resource "aws_instance" "pe-server" {
 
   tags = {
     Name     = "pe_server_${count.index}"
-    lifetime = "5d"
+    lifetime = "1d"
     email    = "andrew.jones@perforce.com"
   }
 }

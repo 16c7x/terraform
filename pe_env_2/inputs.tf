@@ -23,6 +23,6 @@ variable "aws_ami_size" {
 
 variable "key" {
   description = "AWS Key pair"
-  default     = "andrew.jones.windows"
+  default     = "andrew.jones"
 }
 
