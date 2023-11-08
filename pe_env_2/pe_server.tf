@@ -42,7 +42,7 @@ resource "aws_instance" "pe-server" {
 
   tags = {
     Name     = "pe_server_${count.index}"
-    lifetime = "1d"
+    lifetime = "${var.lifetime}"
     email    = "andrew.jones@perforce.com"
   }
 }

@@ -10,7 +10,7 @@ resource "aws_instance" "linux_node_1" {
 
   tags = {
     Name     = "linux_node_${count.index}"
-    lifetime = "1d"
+    lifetime = "${var.lifetime}"
     email    = "andrew.jones@perforce.com"
   }
 }
