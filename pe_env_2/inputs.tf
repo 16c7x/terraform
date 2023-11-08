@@ -26,3 +26,7 @@ variable "key" {
   default     = "andrew.jones"
 }
 
+variable "lifetime" {
+  description = "Tag time before destruction"
+  default     = "2d"
+}
