@@ -1,34 +1,13 @@
 ## Instance
 
-resource "aws_key_pair" "web-server-instance" {
-  key_name   = "my_key"
-  public_key = file("~/.ssh/id_rsa.pub")
-}
-
-
-resource "aws_instance" "web-server-instance" {
-  ami               = var.aws_ami
-  instance_type     = var.aws_ami_size
-  availability_zone = "eu-west-1a"
-  key_name          = "my_key"
-
-  provisioner "file" {
-    source      = "~/.ssh/puppet-control-repo"
-    destination = "/tmp/puppet-control-repo"
-
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      private_key = file("~/.ssh/id_rsa")
-      host        = self.public_ip
-    }
-  }
-
-  network_interface {
-    device_index         = 0
-    network_interface_id = aws_network_interface.web-server-nic.id
-  }
-
+resource "aws_instance" "helix_alm" { 
+  ami                    = "${var.linux_ami}"
+  instance_type          = "${var.aws_ami_size}"
+  count                  = 1
+  key_name               = "${var.key}"
+  subnet_id              = module.networking.subnet_ids[count.index % length(module.networking.subnet_ids)]
+  vpc_security_group_ids = module.networking.security_group_ids
+  
   user_data = <<-EOF
               #!/bin/bash
               sudo echo "########################################" >> /var/build.log
@@ -42,15 +21,16 @@ resource "aws_instance" "web-server-instance" {
               sudo echo "########################################" >> /var/build.log
               sudo echo "# run installer" >> /var/build.log
               sudo echo "########################################" >> /var/build.log
-              sudo chmod +x /terraform/file_store/pe_server.sh >> /var/build.log
-              sudo /terraform/file_store/pe_server.sh >> /var/build.log
+              sudo chmod +x /terraform/file_store/helix_alm.sh >> /var/build.log
+              sudo /terraform/file_store/helix_alm.sh >> /var/build.log
               sudo echo "########################################" >> /var/build.log
               sudo echo "# Finished" >> /var/build.log
               sudo echo "########################################" >> /var/build.log
               EOF
 
   tags = {
-    Name     = "redhat8 pe server"
-    lifetime = "5d"
+    Name     = "helix_alm_${count.index}"
+    lifetime = "${var.lifetime}"
+    email    = "andrew.jones@perforce.com"
   }
 }

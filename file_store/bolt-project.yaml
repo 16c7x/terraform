@@ -1,0 +1,9 @@
+modules:
+  - name: puppetlabs/cd4peadm
+    version_requirement: 5.0.0
+module-install:
+  forge:
+    authorization_token: 'Bearer dc255bb3a40ffdeb546ab0ed3491f17a50865a18a4b213aec20c308cb9c8ec79'
+    baseurl: https://forgeapi.puppet.com
+
+    

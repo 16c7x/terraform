@@ -6,14 +6,10 @@ variable "aws_region" {
 }
 
 variable "linux_ami" {
-  description = "RHEL 8 ami for the Windows nodes"
-  default     = "ami-0f0f1c02e5e4d9d9f" 
-}
-
-variable "windows_ami" {
-  description = "Windows 2012 ami for the Windows nodes"
-  #default     = "ami-08456538e3a727106"
-  default     = "ami-0855cc7dacc5f76eb"
+  description = "RHEL 8 ami for the linux nodes"
+  #default     = "ami-0f0f1c02e5e4d9d9f" 
+  #default     = "ami-08031206a0ff5a6ac"
+  default      = "ami-030f8f64679a7bef6"
 }
 
 variable "aws_ami_size" {
@@ -28,5 +24,5 @@ variable "key" {
 
 variable "lifetime" {
   description = "Tag time before destruction"
-  default     = "2d"
+  default     = "14d"
 }
