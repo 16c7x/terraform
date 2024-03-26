@@ -36,3 +36,6 @@ rm ttlinuxinstall.tar.gz # We have to do this or we run out of space on the VM
 cd tt-*
 # ./install.pl # This is an interactive installer, so we can't use it in a script.
 
+# 1 3 4 5 6 7 8 11 13 14
+# 1566
+# 5100
