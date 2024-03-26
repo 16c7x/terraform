@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Install prerequisites
+apt-get update
 apt-get install -y libgl1-mesa-glx
 apt-get install -y libharfbuzz-dev
 apt-get install -y net-tools
@@ -13,7 +14,7 @@ apt-get install -y libgl1-mesa-glx libharfbuzz0b libbz2-1.0 libgtk2.0-0 libpango
 # Copy the apache config file
 # cp /terraform/file_store/helix_alm.conf /etc/apache2/apache2.conf
 
-cat << EOF > /etc/apache2/apache2.conf
+cat << EOF >> /etc/apache2/apache2.conf
 ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
 <Directory "/var/www/cgi-bin">
     AllowOverride None
