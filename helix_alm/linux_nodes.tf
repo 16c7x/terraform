@@ -6,8 +6,13 @@ resource "aws_instance" "helix_alm" {
   count                  = 1
   key_name               = "${var.key}"
   subnet_id              = module.networking.subnet_ids[count.index % length(module.networking.subnet_ids)]
-  vpc_security_group_ids = module.networking.security_group_ids
   
+  vpc_security_group_ids = module.networking.security_group_ids
+    root_block_device {
+    volume_size = 30
+  }
+
+
   user_data = <<-EOF
               #!/bin/bash
               sudo echo "########################################" >> /var/build.log
