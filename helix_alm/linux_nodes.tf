@@ -20,12 +20,12 @@ resource "aws_instance" "helix_alm" {
               sudo echo "########################################" >> /var/build.log
               sudo echo "# clone git repo" >> /var/build.log
               sudo echo "########################################" >> /var/build.log
-              #git clone https://github.com/16c7x/terraform.git >> /var/build.log
+              git clone https://github.com/16c7x/terraform.git >> /var/build.log
               sudo echo "########################################" >> /var/build.log
               sudo echo "# run installer" >> /var/build.log
               sudo echo "########################################" >> /var/build.log
               sudo chmod +x /terraform/file_store/helix_alm.sh >> /var/build.log
-              #sudo /terraform/file_store/helix_alm.sh >> /var/build.log
+              sudo /terraform/file_store/helix_alm.sh >> /var/build.log
               sudo echo "########################################" >> /var/build.log
               sudo echo "# Finished" >> /var/build.log
               sudo echo "########################################" >> /var/build.log

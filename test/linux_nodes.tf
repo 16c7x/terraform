@@ -8,6 +8,10 @@ resource "aws_instance" "linux_node" {
   subnet_id              = module.networking.subnet_ids[count.index % length(module.networking.subnet_ids)]
   vpc_security_group_ids = module.networking.security_group_ids
 
+  root_block_device {
+    volume_size = 10
+  }
+
   tags = {
     Name     = "linux_node_${count.index}"
     lifetime = "${var.lifetime}"
