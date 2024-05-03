@@ -7,9 +7,10 @@ sudo yum -y install bind-utils
 #wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=8&arch=x86_64&ver=latest'
 wget --content-disposition 'https://pm.puppetlabs.com/puppet-enterprise/2023.6.0/puppet-enterprise-2023.6.0-ubuntu-20.04-amd64.tar.gz'
 #
-gunzip puppet-enterprise-*.tar.gz
-tar -xvf puppet-enterprise-*.tar
-cd puppet-enterprise-*
+
+tar -xvf puppet-enterprise-*.gz
+directory=$(echo puppet*amd64)
+cd $directory
 sudo ./puppet-enterprise-installer -c /terraform/file_store/pe.conf
 cd ..
 
