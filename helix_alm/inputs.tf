@@ -24,5 +24,5 @@ variable "key" {
 
 variable "lifetime" {
   description = "Tag time before destruction"
-  default     = "14d"
+  default     = "30d"
 }

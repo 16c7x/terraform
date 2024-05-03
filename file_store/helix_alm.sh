@@ -62,3 +62,6 @@ cd tt-*
 # http://<hostname>/ttweb/ttadmin/adminlogin.htm
 # http://<hostname>/lsweb/admin/#mainPage/licensesList
 # http://<hostname>/ttweb/#Default/1/testCases?tabID=2147483657&filterID=0&page=0
+
+
+http://ip-10-138-1-217.eu-west-1.compute.internal/lsweb/admin/#mainPage/licensesList

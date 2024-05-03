@@ -14,7 +14,7 @@ resource "aws_instance" "pe-server" {
 
     connection {
       type        = "ssh"
-      user        = "ec2-user"
+      user        = "ubuntu"
       private_key = file("~/.ssh/${var.key}.pem")
       host        = self.public_ip
     }

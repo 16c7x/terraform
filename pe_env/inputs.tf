@@ -6,8 +6,8 @@ variable "aws_region" {
 }
 
 variable "linux_ami" {
-  description = "RHEL 8 ami for the Windows nodes"
-  default     = "ami-0f0f1c02e5e4d9d9f" 
+  description = "ami for Linux nodes"
+  default     = "ami-030f8f64679a7bef6" 
 }
 
 ## Minimum of 2 Linux nodes or outputs.tf will fail
@@ -39,5 +39,5 @@ variable "key" {
 
 variable "lifetime" {
   description = "Tag time before destruction"
-  default     = "2d"
+  default     = "10d"
 }

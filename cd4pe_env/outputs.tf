@@ -9,3 +9,8 @@ output "cd4pe_server" {
     description = "This will return the entry for the /etc/hosts file to access cd4pe"
     value       = join(" ", [aws_instance.cd4pe_node[0].public_ip, aws_instance.cd4pe_node[0].private_dns])
 }
+
+output "docker_server" {
+    description = "This will return the entry for the /etc/hosts file to access cd4pe"
+    value       = join(" ", [aws_instance.docker_node[0].public_ip, aws_instance.docker_node[0].private_dns])
+}

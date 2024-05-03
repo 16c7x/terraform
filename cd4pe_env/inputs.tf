@@ -6,8 +6,8 @@ variable "aws_region" {
 }
 
 variable "linux_ami" {
-  description = "RHEL 8 ami"
-  default     = "ami-0f0f1c02e5e4d9d9f" 
+  description = "Ubuntu 20.04"
+  default     = "ami-030f8f64679a7bef6" 
 }
 
 variable "aws_ami_size" {

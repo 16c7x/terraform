@@ -5,11 +5,11 @@ sudo yum -y install bind-utils
 
 # Install Puppet -  ToDo - we should probably handle .tar.gz files rather then presume it'll all be uncompressed.
 #wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=8&arch=x86_64&ver=latest'
-wget --content-disposition 'https://pm.puppetlabs.com/puppet-enterprise/2021.7.4/puppet-enterprise-2021.7.4-el-8-x86_64.tar.gz'
+wget --content-disposition 'https://pm.puppetlabs.com/puppet-enterprise/2023.6.0/puppet-enterprise-2023.6.0-ubuntu-20.04-amd64.tar.gz'
 #
 gunzip puppet-enterprise-*.tar.gz
 tar -xvf puppet-enterprise-*.tar
-cd puppet-enterprise-*x86_64
+cd puppet-enterprise-*
 sudo ./puppet-enterprise-installer -c /terraform/file_store/pe.conf
 cd ..
 
@@ -31,6 +31,9 @@ sudo chown -fR pe-puppet:pe-puppet /etc/puppetlabs/puppet/keys/
 # Run Puppet a couple of times to straighten itself out. 
 sudo /usr/local/bin/puppet agent -t || true
 sudo /usr/local/bin/puppet agent -t || true
+
+# need to copy / fix this 
+#/opt/puppetlabs/server/data/puppetserver/.ssh/known_hosts
 
 # Use the RBAC API to get an authentication token, strip the quotes off, save it where code manager can find it and then run a code deploy.
 token=$(curl --insecure –cacert $(puppet config print cacert) -X POST -H 'Content-Type: application/json' -d '{"login": "admin", "password": "puppetlabs", "lifetime": "4h", "label": "four-hour token"}' https://localhost:4433/rbac-api/v1/auth/token)
