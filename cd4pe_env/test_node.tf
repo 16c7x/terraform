@@ -1,6 +1,6 @@
 ## Instance
 
-resource "aws_instance" "docker_node" {
+resource "aws_instance" "test_node" {
   ami                    = "${var.linux_ami}"
   instance_type          = "${var.aws_ami_size}"
   count                  = "1"
@@ -12,15 +12,8 @@ resource "aws_instance" "docker_node" {
     volume_size = 20
   }
 
-  user_data = <<-EOF
-              #!/bin/bash
-              mkdir -p /etc/facter/facst.d
-              echo "---" >> /etc/facter/facst.d/role.yaml
-              echo "role: role::docker" >> /etc/facter/facst.d/role.yaml
-              EOF
-
   tags = {
-    Name     = "docker_node_${count.index}"
+    Name     = "test_node_${count.index}"
     lifetime = "${var.lifetime}"
     email    = "andrew.jones@perforce.com"
   }
