@@ -36,6 +36,7 @@ sudo /usr/local/bin/puppet agent -t || true
 # need to copy / fix this 
 # /opt/puppetlabs/server/data/puppetserver/.ssh/known_hosts
 # https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints
+sudo cp /terraform/file_store/github_public_keys /opt/puppetlabs/server/data/puppetserver/.ssh/known_hosts
 
 # Use the RBAC API to get an authentication token, strip the quotes off, save it where code manager can find it and then run a code deploy.
 token=$(curl --insecure –cacert $(puppet config print cacert) -X POST -H 'Content-Type: application/json' -d '{"login": "admin", "password": "puppetlabs", "lifetime": "4h", "label": "four-hour token"}' https://localhost:4433/rbac-api/v1/auth/token)
