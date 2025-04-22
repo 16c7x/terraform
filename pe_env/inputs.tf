@@ -39,5 +39,10 @@ variable "key" {
 
 variable "lifetime" {
   description = "Tag time before destruction"
-  default     = "10d"
+  default     = "5d"
+}
+
+variable "project" {
+  description = "Project name"
+  default     = "cron_test"
 }
