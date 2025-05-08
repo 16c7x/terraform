@@ -14,9 +14,9 @@ resource "aws_instance" "docker_node" {
 
   user_data = <<-EOF
               #!/bin/bash
-              mkdir -p /etc/facter/facst.d
-              echo "---" >> /etc/facter/facst.d/role.yaml
-              echo "role: role::docker" >> /etc/facter/facst.d/role.yaml
+              mkdir -p /etc/facter/facts.d
+              echo "---" >> /etc/facter/facts.d/role.yaml
+              echo "role: role::docker" >> /etc/facter/facts.d/role.yaml
               EOF
 
   tags = {

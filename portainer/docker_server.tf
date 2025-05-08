@@ -1,6 +1,6 @@
 ## Instance
 
-resource "aws_instance" "linux_node" {
+resource "aws_instance" "docker_server" {
   ami                    = "${var.linux_ami}"
   instance_type          = "${var.aws_ami_size}"
   count                  = "1"
@@ -12,7 +12,7 @@ resource "aws_instance" "linux_node" {
     volume_size = 10
   }
 
-  #user_data = <<-EOF
+  user_data = <<-EOF
               #!/bin/bash
               sudo echo "# Installing Docker" >> /var/build.log
               for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done 

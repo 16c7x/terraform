@@ -2,13 +2,15 @@
 # Istall CD4PE agent on Ubuntu 20.04
 # https://help.puppet.com/cdpe/current/Content/UserGuide/CDPE/Installation/cd_install.htm
 
-sudo rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-8.noarch.rpm
-sudo yum install puppet-bolt
+# Install Puppet Bolt - RedHat
+#sudo rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-8.noarch.rpm
+#sudo yum install puppet-bolt
 
-#wget https://apt.puppet.com/puppet-tools-release-focal.deb
-#sudo dpkg -i puppet-tools-release-focal.deb
-#sudo apt-get update 
-#sudo apt-get install puppet-bolt
+# Install Puppet Bolt - Ubuntu
+wget https://apt.puppet.com/puppet-tools-release-focal.deb
+sudo dpkg -i puppet-tools-release-focal.deb
+sudo apt-get update 
+sudo apt-get install puppet-bolt
 
 mkdir cd4pe-bolt-project 
 cd cd4pe-bolt-project

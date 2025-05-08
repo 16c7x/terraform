@@ -19,8 +19,8 @@ provider "aws" {
 # Contain all the networking configuration for readability
 module "networking" {
   source    = "git@github.com:16c7x/terraform_networking.git"
-  id        = "demo"
-  project   = "demo"
+  id        = "${var.project}"
+  project   = "${var.project}"
   allow      = concat(["10.128.0.0/9"], [ "109.151.183.6/32", "80.7.54.175/32", data.external.myip.result.my_ip ])
   to_create = true
   subnet    = null

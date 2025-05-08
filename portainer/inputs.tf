@@ -24,3 +24,8 @@ variable "lifetime" {
   description = "Tag time before destruction"
   default     = "14d"
 }
+
+variable "project" {
+  description = "Project name"
+  default     = "portainer"
+}

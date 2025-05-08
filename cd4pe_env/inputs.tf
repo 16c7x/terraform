@@ -24,3 +24,8 @@ variable "lifetime" {
   description = "Tag time before destruction"
   default     = "10d"
 }
+
+variable "project" {
+  description = "Project name"
+  default     = "cd4pe_env"
+}
